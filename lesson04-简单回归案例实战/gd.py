@@ -26,11 +26,12 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
     b = starting_b
     m = starting_m
     for i in range(num_iterations):
-        b, m = step_gradient(b, m, np.array(points), learning_rate)
+        b, m = step_gradient(b, m, points, learning_rate)
     return [b, m]
 
 def run():
     points = np.genfromtxt("data.csv", delimiter=",")
+    print(points.shape)
     learning_rate = 0.0001
     initial_b = 0 # initial y-intercept guess
     initial_m = 0 # initial slope guess
@@ -48,3 +49,4 @@ def run():
 
 if __name__ == '__main__':
     run()
+
